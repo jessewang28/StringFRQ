@@ -21,20 +21,17 @@ public class ErrorLog {
     public boolean containsKey(String keyword) {
         int x = 0;
         int y = 0;
-        String compare = " " + keyword + " ";
+        String compare = keyword + " ";
         boolean r = false;
+        String d = " ";
         for (int i = 0; i <= description.length(); i++) {
-            x = description.indexOf(" ", i);
-            y = compare.length() + 1;
-            String d = description.substring(x, y);
-            if (d == compare) {
+            x = description.indexOf("disk ", i);
+            y = description.indexOf("disk", i);
+            if (x != -1) {
                 r = true;
                 break;
             }
-
-            //for (int j=1; j<=compare.length(); j++){}
         }
-
         return r;
     }
 

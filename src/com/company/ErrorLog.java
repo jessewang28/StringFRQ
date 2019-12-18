@@ -68,3 +68,12 @@ public class ErrorLog {
         System.out.println("message 6 " + er6.containsKey("disk")); //false
     }
 }
+
+/*
+message 1 false
+message 2 true
+message 3 false
+message 4 true
+message 5 true
+message 6 false
+ */

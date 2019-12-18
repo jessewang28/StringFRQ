@@ -21,12 +21,21 @@ public class ErrorLog {
     public boolean containsKey(String keyword) {
         int x = 0;
         int y = 0;
+        int z = 0;
         String compare = keyword + " ";
         boolean r = false;
         String d = " ";
         for (int i = 0; i <= description.length(); i++) {
             x = description.indexOf("disk ", i);
-            y = description.indexOf("disk", i);
+            //y = description.indexOf("disk", i);
+            z = description.lastIndexOf(" " + keyword);
+            int total = description.length() - z;
+            if (z!=-1){
+                if (total-keyword.length()-1==0){
+                    r=true;
+                    break;
+                }
+            }
             if (x != -1) {
                 r = true;
                 break;
@@ -51,11 +60,11 @@ public class ErrorLog {
         ErrorLog er5 = new ErrorLog("SERVER22:write error on disk");
         ErrorLog er6 = new ErrorLog("Webserver:error on /dev/disk");
 
-        System.out.println("message 1 " + er1.containsKey("disk"));
-        System.out.println("message 2 " + er2.containsKey("disk"));
-        System.out.println("message 3 " + er3.containsKey("disk"));
-        System.out.println("message 4 " + er4.containsKey("disk"));
-        System.out.println("message 5 " + er5.containsKey("disk"));
-        System.out.println("message 6 " + er6.containsKey("disk"));
+        System.out.println("message 1 " + er1.containsKey("disk")); //false
+        System.out.println("message 2 " + er2.containsKey("disk")); //true
+        System.out.println("message 3 " + er3.containsKey("disk")); //false
+        System.out.println("message 4 " + er4.containsKey("disk")); //true
+        System.out.println("message 5 " + er5.containsKey("disk")); //true
+        System.out.println("message 6 " + er6.containsKey("disk")); //false
     }
 }

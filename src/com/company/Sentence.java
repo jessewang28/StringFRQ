@@ -1,3 +1,6 @@
+//Jesse Wang
+//3B Computer Science
+
 package com.company;
 
 public class Sentence {
